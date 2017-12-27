@@ -1,3 +1,4 @@
+const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
 
@@ -21,6 +22,14 @@ module.exports = {
             options: { babelrc: false }
           },
           { loader: "awesome-typescript-loader" }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "postcss-loader", options: { plugins: [autoprefixer] } }
         ]
       }
     ]
