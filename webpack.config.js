@@ -4,7 +4,6 @@ const webpack = require("webpack");
 module.exports = {
   entry: [
     "babel-polyfill",
-    "react-hot-loader/patch",
     "webpack/hot/only-dev-server",
     path.resolve(__dirname, "src/entrypoint")
   ],
@@ -19,7 +18,7 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-            options: { babelrc: false, plugins: ["react-hot-loader/babel"] }
+            options: { babelrc: false }
           },
           { loader: "awesome-typescript-loader" }
         ]
@@ -33,7 +32,6 @@ module.exports = {
   devServer: {
     port: 8080,
     hot: true,
-    inline: true,
     historyApiFallback: true
   },
   plugins: [
